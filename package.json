@@ -1,0 +1,16 @@
+{
+   "name": "app",
+   "version": "1.0.0",
+   "main": "src/index.js",
+   "license": "MIT",
+   "dependencies": {
+      "esm": "^3.2.25",
+      "pg": "^8.5.1",
+      "typeorm": "0.2.30"
+   },
+   "devDependencies": {},
+   "scripts": {
+      "start": "node main.js",
+      "typeorm": "node -r esm ./node_modules/typeorm/cli.js"
+   }
+}
