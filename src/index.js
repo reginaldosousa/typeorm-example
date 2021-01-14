@@ -1,21 +1,36 @@
 import { createConnection } from "typeorm";
-import { User } from "./model/User.js";
+import { Customer } from "./model/Customer.js";
+import { Tenant } from "./model/Tenant.js";
 
 const start = async () => {
   try {
     const connection = await createConnection()
 
-    const user1 = new User(0, "John");
-    const user2 = new User(0, "David");
+    const tenant1 = new Tenant();
+    tenant1.title = "Vivo"
+    tenant1.slug = "vivo"
+    const tenant2 = new Tenant();
+    tenant2.title = "Claro"
+    tenant2.slug = "claro"
 
     await connection
               .manager
-              .save([user1, user2])
+              .save([tenant1, tenant2])
 
-    const userRepository = connection.getRepository(User);
-    const allUsers = await userRepository.find()
-    console.log(allUsers)
+    const customer1 = new Customer();
+    customer1.externalRefId = "abc123"
+    customer1.tenant = tenant1
+    const customer2 = new Customer();
+    customer2.externalRefId = "abc567"
+    customer2.tenant = tenant2
 
+    await connection
+              .manager
+              .save([customer1, customer2])
+
+    const CustomerRepository = connection.getRepository(Customer);
+    const allCustomers = await CustomerRepository.find({ relations: ["tenant"] })
+    console.log(allCustomers)
   } catch(error) {
     console.log("Error: ", error);
   }

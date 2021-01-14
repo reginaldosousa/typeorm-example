@@ -14,7 +14,7 @@ export class CreateCustomers1610462067628 {
             isGenerated: true
           },
           {
-            name: "tentant_id",
+            name: "tenant_id",
             type: "int",
             isNullable: false
           },
