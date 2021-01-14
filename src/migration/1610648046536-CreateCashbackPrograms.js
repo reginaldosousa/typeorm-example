@@ -1,11 +1,11 @@
 import {Table} from "typeorm";
 
-export class CreateCustomers1610462067628 {
+export class CreateCashbackPrograms1610648046536 {
 
   async up(queryRunner) {
     await queryRunner.createTable(
       new Table({
-        name: "customers",
+        name: "cashback_programs",
         columns: [
           {
             name: "id",
@@ -22,6 +22,22 @@ export class CreateCustomers1610462067628 {
             name: "external_ref_id",
             type: "varchar",
             isNullable: false
+          },
+          {
+            name: "title",
+            type: "varchar",
+            isNullable: false
+          },
+          {
+            name: "amount",
+            type: "decimal",
+            isNullable: false
+          },
+          {
+            name: "flat",
+            type: "boolean",
+            isNullable: false,
+            default: "false"
           },
           {
             name: "created_at",
@@ -42,7 +58,7 @@ export class CreateCustomers1610462067628 {
   }
 
   async down(queryRunner) {
-    await queryRunner.dropTable("customers");
+    await queryRunner.dropTable("cashback_programs");
   }
 
 }
