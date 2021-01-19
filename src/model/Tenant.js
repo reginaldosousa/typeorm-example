@@ -1,2 +1,1 @@
-export class Tenant {
-}
+export class Tenant {}

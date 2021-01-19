@@ -1,7 +1,6 @@
-import {Table} from "typeorm";
+import { Table } from "typeorm";
 
 export class CreateCustomers1610462067628 {
-
   async up(queryRunner) {
     await queryRunner.createTable(
       new Table({
@@ -11,38 +10,37 @@ export class CreateCustomers1610462067628 {
             name: "id",
             type: "int",
             isPrimary: true,
-            isGenerated: true
+            isGenerated: true,
           },
           {
             name: "tenant_id",
             type: "int",
-            isNullable: false
+            isNullable: false,
           },
           {
             name: "external_ref_id",
             type: "varchar",
-            isNullable: false
+            isNullable: false,
           },
           {
             name: "created_at",
             type: "timestamp",
-            default: 'now()',
-            isNullable: false
+            default: "now()",
+            isNullable: false,
           },
           {
             name: "updated_at",
             type: "timestamp",
-            default: 'now()',
-            isNullable: false
-          }
-        ]
-      }
-    ),
-    true)
+            default: "now()",
+            isNullable: false,
+          },
+        ],
+      }),
+      true
+    );
   }
 
   async down(queryRunner) {
     await queryRunner.dropTable("customers");
   }
-
 }

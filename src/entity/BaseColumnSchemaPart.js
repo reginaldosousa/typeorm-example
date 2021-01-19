@@ -5,13 +5,13 @@ export const BaseColumnSchemaPart = {
     generated: true,
   },
   createdAt: {
-    name: 'created_at',
-    type: 'timestamp',
+    name: "created_at",
+    type: "timestamp",
     createDate: true,
   },
   updatedAt: {
-    name: 'updated_at',
-    type: 'timestamp',
+    name: "updated_at",
+    type: "timestamp",
     updateDate: true,
-  }
-}
+  },
+};

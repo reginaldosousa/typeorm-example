@@ -1,11 +1,11 @@
-import { createConnection } from 'typeorm'
+import { createConnection } from "typeorm";
 
 export default class DB {
-  static instance = null
+  static instance = null;
   static async getConnection() {
     if (this.instance === null) {
-      this.instance = await createConnection()
+      this.instance = await createConnection();
     }
-    return this.instance
+    return this.instance;
   }
 }
