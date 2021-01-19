@@ -16,6 +16,8 @@
   "scripts": {
     "dev": "nodemon yarn start",
     "start": "node main.js",
-    "typeorm": "node -r esm ./node_modules/typeorm/cli.js"
+    "typeorm": "node -r esm ./node_modules/typeorm/cli.js",
+    "prettier": "prettier -c .",
+    "prettier:fix": "prettier -w ."
   }
 }
