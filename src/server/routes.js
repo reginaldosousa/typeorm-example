@@ -1,4 +1,4 @@
-import DB from "../db/index.js";
+import { getRepository } from "typeorm";
 import listCustomers from "./handlers/customers/index.js";
 
 export default [
@@ -26,13 +26,12 @@ export default [
     },
     handler: async (request, reply) => {
       try {
-        const connection = await DB.getConnection();
         const customer = new Customer();
         customer.externalRefId = request.body.externalRefId;
         const tenant = new Tenant();
         tenant.id = request.body.tenantId;
         customer.tenant = tenant;
-        const CustomerRepository = connection.getRepository(Customer);
+        const CustomerRepository = getRepository(Customer);
 
         await CustomerRepository.save(customer);
 

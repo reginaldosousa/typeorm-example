@@ -1,8 +1,7 @@
-import DB from "../../../db/index.js";
+import { getRepository } from "typeorm";
 import { Customer } from "../../../model/Customer";
 
 export default async (request, reply) => {
-  const connection = await DB.getConnection();
-  const CustomerRepository = connection.getRepository(Customer);
+  const CustomerRepository = getRepository(Customer);
   return CustomerRepository.find({ relations: ["tenant"] });
 };

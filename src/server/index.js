@@ -9,11 +9,15 @@ export default class Server {
   }
 
   start() {
-    this.server.listen(process.env.PORT || 3000, function (err, address) {
-      if (err) {
-        server.log.error(err);
-        process.exit(1);
+    this.server.listen(
+      process.env.PORT || 3000,
+      "0.0.0.0",
+      function (err, address) {
+        if (err) {
+          server.log.error(err);
+          process.exit(1);
+        }
       }
-    });
+    );
   }
 }
