@@ -10,7 +10,7 @@ const defaults = {
 
 let parsed = {};
 
-if (process.env.DATABASE_URL !== "") {
+if (process.env.DATABASE_URL !== undefined) {
   parsed = parse(process.env.DATABASE_URL);
   parsed.username = parsed.user;
 }
